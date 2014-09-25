@@ -1,4 +1,4 @@
-# Mfcloud Symfony 2
+# Mfcloud - Chat
 
 ## Installation
 
@@ -7,13 +7,13 @@
 ### Step2: Init app
 
 ``` bash
-mfcloud init symfony [path_to_mfcloud_symfony]
+mfcloud init chat [path_to_mfcloud_chat]
 ```
 
 ### Step3: Start app
 
 ``` bash
-mfcloud start symfony
+mfcloud start chat
 ```
 
 ## License

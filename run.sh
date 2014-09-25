@@ -13,14 +13,27 @@ if [ ! -d ./sf ]; then
     cp -R .sf/* sf
     sf/app/console doctrine:database:create
 
-    # Demo page
-    sf/app/console generate:bundle --namespace=Hello/WorldBundle --no-interaction --dir=sf/src
-    echo 'root:' >> sf/app/config/routing.yml
-    echo '    path: /' >> sf/app/config/routing.yml
-    echo '    defaults:' >> sf/app/config/routing.yml
-    echo '        _controller: FrameworkBundle:Redirect:urlRedirect' >> sf/app/config/routing.yml
-    echo '        path: /hello/world' >> sf/app/config/routing.yml
-    echo '        permanent: true' >> sf/app/config/routing.yml
+    # Install chat
+    sf/app/console generate:bundle --namespace=Cravler/RemoteBundle --no-interaction --dir=sf/src
+    sf/app/console generate:bundle --namespace=Cravler/ChatBundle --no-interaction --dir=sf/src
+    composer require cravler/remote-bundle:dev-master --working-dir=sf/
+    composer require cravler/chat-bundle:dev-master --working-dir=sf/
+    rm -rf sf/src/Cravler
+    sf/app/console assets:install sf/web/
+
+    echo '' >> sf/app/config/config.yml
+    echo 'cravler_remote:' >> sf/app/config/config.yml
+    echo '    app_port: 8080:80' >> sf/app/config/config.yml
+    echo '    remote_host: "remote"' >> sf/app/config/config.yml
+    echo '    secret: "%secret%"' >> sf/app/config/config.yml
+
+    echo '' > sf/app/config/routing.yml
+    echo 'cravler_remote:' >> sf/app/config/routing.yml
+    echo '    resource: "@CravlerRemoteBundle/Resources/config/routing.xml"' >> sf/app/config/routing.yml
+    echo '' >> sf/app/config/routing.yml
+    echo 'cravler_chat:' >> sf/app/config/routing.yml
+    echo '    resource: "@CravlerChatBundle/Resources/config/routing.xml"' >> sf/app/config/routing.yml
+    echo '    prefix:   /' >> sf/app/config/routing.yml
 
 else
 

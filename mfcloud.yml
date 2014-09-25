@@ -19,6 +19,15 @@ php:
 #        /home/mfcloud/.composer: /.composer
     cmd: ./run.sh
 
+remote:
+    image: cravler/remote
+    env:
+        CRAVLER_REMOTE_ENV: 'daemon'
+        CRAVLER_REMOTE_WORKDIR: '/var/www/sf'
+        PHP5_DATE_TIMEZONE: 'Europe/Tallinn'
+    volumes:
+        .: /var/www
+
 nginx:
     image: nginx
     volumes:
