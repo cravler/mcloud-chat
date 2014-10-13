@@ -1,19 +1,19 @@
-# Mfcloud - Chat
+# MCloud - Chat
 
 ## Installation
 
-### Step 1: Install [Mfcloud](http://mfcloud.readthedocs.org)
+### Step 1: Install [MCloud](http://cloud.modera.org)
 
-### Step2: Init app
+### Step 2: Init app
 
 ``` bash
-mfcloud init chat [path_to_mfcloud_chat]
+mcloud init chat [path_to_mcloud_chat]
 ```
 
-### Step3: Start app
+### Step 3: Start app
 
 ``` bash
-mfcloud start chat
+mcloud start chat
 ```
 
 ## License
