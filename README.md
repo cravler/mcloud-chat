@@ -2,7 +2,7 @@
 
 ## Installation
 
-### Step 1: Install [MCloud](http://cloud.modera.org)
+### Step 1: Install [MCloud](https://mcloud.io)
 
 ### Step 2: Init app
 
@@ -14,6 +14,12 @@ mcloud init chat [path_to_mcloud_chat]
 
 ``` bash
 mcloud start chat
+```
+
+### Step 4: Show status
+
+``` bash
+mcloud status chat
 ```
 
 ## License
