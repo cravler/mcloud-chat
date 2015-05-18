@@ -30,6 +30,7 @@ remote:
         .: /var/www
 
 nginx:
+    web: 80
     image: nginx:1.7.7
     volumes:
         .: /var/www
